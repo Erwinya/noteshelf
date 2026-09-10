@@ -55,11 +55,19 @@ src/main/resources/
 
 ## Notes storage
 
+Linux / macOS:
+
 ```text
 ~/.noteshelf/notes.ser
 ```
 
-Existing data from `~/.swing-notepad/` is loaded automatically on first run, then rewritten to the new location on save.
+Windows:
+
+```text
+%USERPROFILE%\.noteshelf\notes.ser
+```
+
+Existing data from `~/.swing-notepad/` (or `%USERPROFILE%\.swing-notepad\`) is loaded automatically on first run, then rewritten to the new location on save.
 
 ## License
 
