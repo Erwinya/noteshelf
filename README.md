@@ -17,6 +17,7 @@ Repository: [Erwinya/noteshelf](https://github.com/Erwinya/noteshelf)
 
 - Java 17+
 - Maven 3.9+ (optional if you only run a packaged JAR)
+- GitHub Actions CI runs `mvn test` on push
 
 ## Run
 
