@@ -38,7 +38,7 @@ public class NoteListPanel extends JPanel {
                         Note oldNote = listModel.getElementAt(index);
                         String newTitle = JOptionPane.showInputDialog(NoteListPanel.this, "Edit note title:", oldNote.getTitle());
                         if (newTitle != null && !newTitle.trim().isEmpty()) {
-                            Note updatedNote = new Note(newTitle.trim(), oldNote.getContent());
+                            Note updatedNote = Note.of(newTitle, oldNote.getContent());
                             noteService.updateNote(index, updatedNote);
                             refresh();
                             noteJList.setSelectedIndex(index);
@@ -51,7 +51,7 @@ public class NoteListPanel extends JPanel {
     }
 
     public void onAddNote(ActionEvent e) {
-        Note note = new Note("New Note", "");
+        Note note = Note.of(noteService.nextUntitledTitle(), "");
         noteService.addNote(note);
         listModel.addElement(note);
         noteJList.setSelectedValue(note, true);

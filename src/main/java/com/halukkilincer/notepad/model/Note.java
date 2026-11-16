@@ -24,6 +24,19 @@ public final class Note implements Serializable {
     }
 
     /**
+     * Creates a note with a trimmed, non-blank title.
+     */
+    public static Note of(String title, String content) {
+        Objects.requireNonNull(title, "title must not be null");
+        Objects.requireNonNull(content, "content must not be null");
+        String normalized = title.trim();
+        if (normalized.isEmpty()) {
+            throw new IllegalArgumentException("title must not be blank");
+        }
+        return new Note(normalized, content);
+    }
+
+    /**
      * Gets the title of the note.
      * @return the title
      */

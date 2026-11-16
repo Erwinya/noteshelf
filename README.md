@@ -6,7 +6,7 @@ Repository: [Erwinya/noteshelf](https://github.com/Erwinya/noteshelf)
 
 ## Features
 
-- Multi-note sidebar (add, remove, rename)
+- Multi-note sidebar (add, remove, rename) with unique default titles and blank-title guard
 - Modern formatting toolbar (fonts, styles, colors, alignment, lists)
 - File open/save and export (TXT, RTF, HTML)
 - Undo / redo, find & replace

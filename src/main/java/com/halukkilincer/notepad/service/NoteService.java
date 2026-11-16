@@ -47,7 +47,28 @@ public class NoteService {
     }
 
     public void updateNote(int index, Note note) {
+        if (index < 0 || index >= notes.size()) {
+            throw new IndexOutOfBoundsException("note index out of range: " + index);
+        }
         notes.set(index, Objects.requireNonNull(note, "note must not be null"));
+    }
+
+    /**
+     * Suggests an unused default title for a newly created note.
+     */
+    public String nextUntitledTitle() {
+        final String base = "New Note";
+        if (notes.stream().noneMatch(note -> note.getTitle().equals(base))) {
+            return base;
+        }
+        int suffix = 2;
+        while (true) {
+            String candidate = base + " (" + suffix + ")";
+            if (notes.stream().noneMatch(note -> note.getTitle().equals(candidate))) {
+                return candidate;
+            }
+            suffix++;
+        }
     }
 
     public int indexOf(Note note) {
